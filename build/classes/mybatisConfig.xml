@@ -21,7 +21,7 @@
 	</environments>
 	<mappers>
 		<!-- 关联映射文件 -->
-		<mapper resource="com/an/Entity/UserMapper.xml" />
+		<mapper resource="com/tao/Entity/UserMapper.xml" />
 	</mappers>        
 
 </configuration>

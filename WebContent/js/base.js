@@ -9,8 +9,6 @@ $("#submit").live('click', function () {
         is_show();
         return false;
     } else {
-        console.log($(".username").val());
-        console.log($(".password").val());
         $.ajax({
             url:"user/login",
             type:"POST",
@@ -20,10 +18,11 @@ $("#submit").live('click', function () {
             }
         })
         .done((data) => {
-            console.log(data);
+            alert(data.responseText);
         })
-        .fail((data) => {
-            console.log(data);
+        .fail((data,xhr) => {
+        	 alert(data.responseText);
+        	 console.log(xhr.status)
         })
     }
 });

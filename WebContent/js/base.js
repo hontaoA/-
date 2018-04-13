@@ -3,26 +3,49 @@ $(".btn").click(function () {
 })
 var u = $(".username").val()
 var p = $(".password").val()
-$("#submit").live('click', function () {
+$("#submit").click(function () { 
     if (u !== '' && p !== '') {
         $("#ts").html("用户名或密码不能为空~");
         is_show();
         return false;
     } else {
         $.ajax({
-            url:"user/login",
+            url:"user/login",     
             type:"POST",
+            dataType:"text",
             data: {
                 username: $(".username").val(),
                 password: $(".password").val()
             }
         })
-        .done((data) => {
-            alert(data.responseText);
+        .done(function(data){
+            if(data == 'success'){
+//            	这里是组件控制
+            	zeroModal.show({
+                    title: '欢迎管理员',
+                    width: '50%',  
+                    height: '20%',
+                    esc:true, 
+                    buttons: [{
+                        className: 'zeromodal-btn zeromodal-btn-primary',
+                        name: '管理用户',
+                        fn: function(opt) {
+                        	location.href = "./zc.html";
+                        }
+                    }, {
+                        className: 'zeromodal-btn zeromodal-btn-default',
+                        name: '进入系统',
+                        fn: function(opt) {
+                        	location.href = "./main.html";
+                        }
+                    }]
+                });
+            }else if(data == '你的用户名错误'){
+            	console.log(data);
+            }
         })
-        .fail((data,xhr) => {
-        	 alert(data.responseText);
-        	 console.log(xhr.status)
+        .fail(function(){
+        	   console.log("服务器故障");
         })
     }
 });
@@ -47,7 +70,7 @@ function is_show() {
     }, 300)
 }
 
-$("#zc").live('click', function () {
-    location.href = "./zc.html"
+$("#zc").click( function () {
+    location.href = "./zc.html";
     return false;
 })

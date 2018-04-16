@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/demo-menu.css">
 <link rel="stylesheet" href="css/zc.css">
 <link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/zeroModal.css"/>
 <script src="js/zepto.min.js"></script>
 <style type="text/css">
 </style>
@@ -24,6 +25,12 @@
           <a class="ZMenu-left-nav-a" href="">
             <img class="item-icon" src="image/iconfont-iconfontfavoriteoutline.png" width="25px" height="25px">
             <span>查询用户</span>
+          </a>
+        </li>
+         <li class="ZMenu-left-nav-item">
+          <a class="ZMenu-left-nav-a" class="adduser">
+            <img class="item-icon" src="image/iconfont-iconfontlistul.png" width="25px" height="25px">
+            <span>添加用户</span>
           </a>
         </li>
         <li class="ZMenu-left-nav-item">
@@ -43,12 +50,6 @@
               </li>
             </ul>
           </div> 
-        </li>
-        <li class="ZMenu-left-nav-item">
-          <a class="ZMenu-left-nav-a" href="">
-            <img class="item-icon" src="image/iconfont-iconfontlistul.png" width="25px" height="25px">
-            <span>添加用户</span>
-          </a>
         </li>
         <li class="ZMenu-left-nav-item">
           <a class="ZMenu-left-nav-a title up" id="title" href="#">
@@ -79,9 +80,11 @@
       </tr>
     </table>
   </div>
-  <script src="js/base.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="js/base.js"></script> 
+  <script src="js/zeroModal.min.js"></script>  
   <script type="text/javascript">
-	$.ajax({
+	/*$.ajax({
 		   url: '',
 		   type: 'POST',
 		   .done(function (data) {
@@ -99,10 +102,10 @@
 			  })
 		     
 		   })
-		})
-
+		})*/
   </script>
   <script src="js/ZMenu.js"></script>
+  
 
 </body>
 </html>

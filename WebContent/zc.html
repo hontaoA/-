@@ -6,14 +6,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 <meta name="format-detection" content="telephone=no" />
-<title>menu(html5)</title>
+<title>注册页面</title>
 <link rel="stylesheet" href="css/demo-menu.css">
+<link rel="stylesheet" href="css/zc.css">
+<link rel="stylesheet" href="css/reset.css">
 <script src="js/zepto.min.js"></script>
 <style type="text/css">
 </style>
 </head>
 <!--该版蓝色边框为两个-->
-<body style="background-color:#f7f7f7">
+<body>
   <section class="ZMenu-left-container">
     <div class="ZMenu-left">
       <!--<div class="ZMenu-left-label" style="top: 16px;"></div>-->
@@ -40,9 +42,7 @@
                 <a class="ZMenu-left-nav-a" href="">修改密码</a>
               </li>
             </ul>
-          </div>
-         
-          
+          </div> 
         </li>
         <li class="ZMenu-left-nav-item">
           <a class="ZMenu-left-nav-a" href="">
@@ -66,8 +66,43 @@
       </ul>
     </div>
   </section>
+  
+  <div class="table_id">
+    <table class="table_td">
+      <tr>
+        <th>id</th>
+        <th>用户名</th>
+        <th>用户密码</th>
+        <th>电话号码</th>
+        <th>用户职务</th>
+        <th>注册日期</th>
+      </tr>
+    </table>
+  </div>
+  <script src="js/base.js"></script>
   <script type="text/javascript">
+	$.ajax({
+		   url: '',
+		   type: 'POST',
+		   .done(function (data) {
+			  data.forEach(function (i) {
+				 $("#table_td").append(`
+			    "<tr>"+
+     		    "<td>"+i.id+"</td>"+
+     			"<td>"+i.username+"</td>"+
+     			"<td>"+i.passwd+"</td>"+
+     			"<td>"+i.phoneNumber+"</td>"+
+     			"<td>"+i.position+"</td>"+
+     			"<td>"+i.date+"</td>"+
+   				"</tr>"
+			    `)
+			  })
+		     
+		   })
+		})
+
   </script>
   <script src="js/ZMenu.js"></script>
+
 </body>
 </html>
